@@ -13,7 +13,7 @@ while True:
        print("Liczba jest większa od podanej!") 
        i += 1
     elif userInput == randomValue:
-        print("Dokonales " + str(i) + " sprob")
+        print("Dokonales " + str(i) + " sprob Wszystko!")
         break
 
 
