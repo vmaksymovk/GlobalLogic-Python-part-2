@@ -1,5 +1,5 @@
 def calc():
-    print('Ten program \'kalkulator \' \nDla wyjscia wpisz \'s\'')
+    print('Ten program - \'kalkulator \' \nDla wyjscia wpisz \'s\'')
     while True:
         a = input("Napisz wyrazenie (Naprzykład: 40 - 34): ")
         if a == "s":
