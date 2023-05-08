@@ -31,7 +31,7 @@ while True:
     menu()
     wybor = input("Twój wybór: ")
 
-    if wybor == 0:
+    if wybor == "0":
         print("Koniec programu.")
         break
 
