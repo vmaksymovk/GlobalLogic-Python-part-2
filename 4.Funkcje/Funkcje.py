@@ -1,53 +1,18 @@
-def dodawanie(a: float, b: float) -> float:
+def dodawanie(a, b):
     return a + b
-"""Dodaje dwie liczby.
 
-    Args:
-        a (float): Pierwsza liczba.
-        b (float): Druga liczba.
-
-    Returns:
-        float: Wynik dodawania.
-    """
-
-def odejmowanie(a: float, b: float) -> float:
+def odejmowanie(a, b):
     return a - b
-"""Odejmuje jedną liczbę od drugiej.
 
-    Args:
-        a (float): Pierwsza liczba.
-        b (float): Druga liczba.
-
-    Returns:
-        float: Wynik odejmowania.
-    """
-
-def mnozenie(a: float, b: float) -> float:
+def mnozenie(a, b):
     return a * b
-    """Mnoży dwie liczby.
 
-    Args:
-        a (float): Pierwsza liczba.
-        b (float): Druga liczba.
-
-    Returns:
-        float: Wynik mnożenia.
-    """
-
-def dzielenie(a: float, b: float):
+def dzielenie(a, b):
     if b == 0:
         print("Nie można dzielić przez zero!")
         return None
     else:
         return a / b
-    """Dzieli jedną liczbę przez drugą.
-
-    Args:
-        a (float): Pierwsza liczba.
-        b (float): Druga liczba.
-
-    
-    """
 
 def menu():
     print("Wybierz operację:")
@@ -55,7 +20,7 @@ def menu():
     print("2 - Odejmowanie")
     print("3 - Mnożenie")
     print("4 - Dzielenie")
-    print("0 - Wyjście")
+    print("q - Wyjście")
 
 def pobierz_liczby():
     a = float(input("Podaj pierwszą liczbę: "))
@@ -66,7 +31,7 @@ while True:
     menu()
     wybor = input("Twój wybór: ")
 
-    if wybor == "0":
+    if wybor == "q":
         print("Koniec programu.")
         break
 
