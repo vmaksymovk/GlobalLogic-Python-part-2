@@ -1,18 +1,53 @@
-def dodawanie(a, b):
+def dodawanie(a: float, b: float) -> float:
     return a + b
+"""Dodaje dwie liczby.
 
-def odejmowanie(a, b):
+    Args:
+        a (float): Pierwsza liczba.
+        b (float): Druga liczba.
+
+    Returns:
+        float: Wynik dodawania.
+    """
+
+def odejmowanie(a: float, b: float) -> float:
     return a - b
+"""Odejmuje jedną liczbę od drugiej.
 
-def mnozenie(a, b):
+    Args:
+        a (float): Pierwsza liczba.
+        b (float): Druga liczba.
+
+    Returns:
+        float: Wynik odejmowania.
+    """
+
+def mnozenie(a: float, b: float) -> float:
     return a * b
+    """Mnoży dwie liczby.
 
-def dzielenie(a, b):
+    Args:
+        a (float): Pierwsza liczba.
+        b (float): Druga liczba.
+
+    Returns:
+        float: Wynik mnożenia.
+    """
+
+def dzielenie(a: float, b: float):
     if b == 0:
         print("Nie można dzielić przez zero!")
         return None
     else:
         return a / b
+    """Dzieli jedną liczbę przez drugą.
+
+    Args:
+        a (float): Pierwsza liczba.
+        b (float): Druga liczba.
+
+    
+    """
 
 def menu():
     print("Wybierz operację:")
