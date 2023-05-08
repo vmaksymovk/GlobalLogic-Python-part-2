@@ -1,4 +1,5 @@
 
+
 inputUserAge = int(input("Ile masz lat? : "))
 
 czyA2 = True if input("Czy masz prawo jazdy kat. A2 (t/n): ") \
