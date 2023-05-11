@@ -1,0 +1,31 @@
+class Czytelnik:
+    def __init__(self, imie, nazwisko, numer_karty):
+        self._imie = imie
+        self._nazwisko = nazwisko
+        self._numer_karty = numer_karty
+
+    def __str__(self):
+        return f"Czytelnik: {self._imie} {self._nazwisko}, numer karty: {self._numer_karty}"
+
+    def get_imie(self):
+        return self._imie
+
+    def get_nazwisko(self):
+        return self._nazwisko
+
+    def get_numer_karty(self):
+        return self._numer_karty
+
+
+czytelnik1 = Czytelnik("Jan", "Kowalski", "123456")
+czytelnik2 = Czytelnik("Anna", "Nowak", "789012")
+
+# nie powinno być możliwe
+czytelnik1._imie = "Adam"
+
+
+print(czytelnik1)
+print(czytelnik2)
+
+print(czytelnik1.get_imie())
+print(czytelnik2.get_nazwisko())
