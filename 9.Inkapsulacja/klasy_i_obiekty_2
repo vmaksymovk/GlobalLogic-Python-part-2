@@ -21,7 +21,7 @@ czytelnik1 = Czytelnik("Jan", "Kowalski", "123456")
 czytelnik2 = Czytelnik("Anna", "Nowak", "789012")
 
 # nie powinno być możliwe
-czytelnik1._imie = "Adam"
+czytelnik1._imie = "Vladyslav"
 
 
 print(czytelnik1)
