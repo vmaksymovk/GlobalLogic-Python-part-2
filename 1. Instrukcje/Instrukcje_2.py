@@ -1,4 +1,9 @@
 # Zadanie 2
 
-for i in range(0, 100, 3):
-    print(i, end=", ") 
+def main():
+    for liczba in range(0, 101):
+        if liczba % 3 == 0:
+            print(liczba)
+
+if __name__ == "__main__":
+    main()
