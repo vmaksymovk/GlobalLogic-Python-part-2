@@ -27,33 +27,39 @@ def pobierz_liczby():
     b = float(input("Podaj drugą liczbę: "))
     return a, b
 
-while True:
-    menu()
-    wybor = input("Twój wybór: ")
+def wykonaj_operacje(wybor, a, b):
+    if wybor == "1":
+        wynik = dodawanie(a, b)
+        print("Wynik dodawania:", wynik)
 
-    if wybor == "q":
-        print("Koniec programu.")
-        break
+    elif wybor == "2":
+        wynik = odejmowanie(a, b)
+        print("Wynik odejmowania:", wynik)
 
-    if wybor in ["1", "2", "3", "4"]:
-        a, b = pobierz_liczby()
+    elif wybor == "3":
+        wynik = mnozenie(a, b)
+        print("Wynik mnożenia:", wynik)
 
-        if wybor == "1":
-            wynik = dodawanie(a, b)
-            print("Wynik dodawania:", wynik)
+    elif wybor == "4":
+        wynik = dzielenie(a, b)
+        if wynik is not None:
+            print("Wynik dzielenia:", wynik)
 
-        elif wybor == "2":
-            wynik = odejmowanie(a, b)
-            print("Wynik odejmowania:", wynik)
+def main():
+    while True:
+        menu()
+        wybor = input("Twój wybór: ")
 
-        elif wybor == "3":
-            wynik = mnozenie(a, b)
-            print("Wynik mnożenia:", wynik)
+        if wybor == "q":
+            print("Koniec programu.")
+            break
 
-        elif wybor == "4":
-            wynik = dzielenie(a, b)
-            if wynik is not None:
-                print("Wynik dzielenia:", wynik)
+        if wybor in ["1", "2", "3", "4"]:
+            a, b = pobierz_liczby()
+            wykonaj_operacje(wybor, a, b)
 
-    else:
-        print("Nieprawidłowy wybór.")
+        else:
+            print("Nieprawidłowy wybór.")
+
+if __name__ == "__main__":
+    main()
