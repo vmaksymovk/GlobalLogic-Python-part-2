@@ -1,15 +1,31 @@
-def dodawanie(a, b):
-    return a + b
-
-def odejmowanie(a, b):
-    return a - b
-
 def mnozenie(a, b):
+    if a is None or b is None:
+        return None
     return a * b
 
 
+def dodawanie(a, b):
+    try:
+        if a is None or b is None:
+            raise ValueError("Nieprawidłowe argumenty!")
+        return a + b
+    except Exception as e:
+        print("Wystąpił błąd podczas dodawania:", e)
+        return None
+
+def odejmowanie(a, b):
+    try:
+        if a is None or b is None:
+            raise ValueError("Nieprawidłowe argumenty!")
+        return a - b
+    except Exception as e:
+        print("Wystąpił błąd podczas odejmowania:", e)
+        return None
+
 def dzielenie(a, b):
     try:
+        if a is None or b is None:
+            raise ValueError("Nieprawidłowe argumenty!")
         if b == 0:
             raise ZeroDivisionError("Nie można dzielić przez zero!")
         else:
@@ -17,6 +33,11 @@ def dzielenie(a, b):
     except ZeroDivisionError as e:
         print(e)
         return None
+    except Exception as e:
+        print("Wystąpił błąd podczas dzielenia:", e)
+        return None
+
+
 
 def menu():
     print("Wybierz operację:")
@@ -27,9 +48,17 @@ def menu():
     print("q - Wyjście")
 
 def pobierz_liczby():
-    a = float(input("Podaj pierwszą liczbę: "))
-    b = float(input("Podaj drugą liczbę: "))
-    return a, b
+    try:
+        a = float(input("Podaj pierwszą liczbę: "))
+        b = float(input("Podaj drugą liczbę: "))
+        return a, b
+    except ValueError:
+        print("Nieprawidłowy format liczby!")
+        menu()
+        return None, None
+
+
+
 
 while True:
     menu()

@@ -27,7 +27,7 @@ print(czytelnik1)
 print(czytelnik2)
 
 
-czytelnik1.imie = "Marcin"  # To nie zadziała !!!!!!
+# czytelnik1.imie = "Marcin"  # To nie zadziała !!!!!! Please uncomment this line 
 
 
 print(czytelnik1.imie)  # Nadal będzie "Jan"
