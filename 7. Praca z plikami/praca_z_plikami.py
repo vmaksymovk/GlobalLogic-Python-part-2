@@ -1,23 +1,34 @@
+import os
+from os.path import dirname, join
+import string
 
-def count_words_and_last_letters(filename):
+file_path = join(dirname(__file__), "tekst.txt")
+
+def count_words(file_path):
     word_count = 0
-    last_letters_count = {}
-    with open(filename, "r") as file:
-        for line in file:
-            words = line.strip().split()
+    ending_stats = {}
+
+    with open(file_path, 'r') as file:
+        paragraphs = file.read().split("\n\n")
+
+        for paragraph in paragraphs:
+            words = paragraph.split()
+
             for word in words:
-                word_count += 1
-                last_letter = word[-1].lower()
-                if last_letter.isalpha():
-                    if last_letter in last_letters_count:
-                        last_letters_count[last_letter] += 1
+                word = word.strip(string.punctuation)
+                if word:
+                    word_count += 1
+                    last_letter = word[-1].lower()
+
+                    if last_letter in ending_stats:
+                        ending_stats[last_letter] += 1
                     else:
-                        last_letters_count[last_letter] = 1
-    print(f"Liczba słow: {word_count}")
-    print("Statystyka:")
-    for letter, count in sorted(last_letters_count.items()):
-        print(f"{letter}: {count}")
+                        ending_stats[last_letter] = 1
 
-count_words_and_last_letters("/Users/vlad/Desktop/Python_part_2/Python_part_2/7. Praca z plikami/tekst.txt")
+    return word_count, ending_stats
 
+word_count, ending_stats = count_words(file_path)
 
+print(f"Liczba słów w tekście: {word_count}")
+print("Statystyki końcówek słów:")
+print(ending_stats)
