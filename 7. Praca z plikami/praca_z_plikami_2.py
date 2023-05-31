@@ -1,27 +1,29 @@
+import os
+from os.path import dirname, join
 import random
-from typing import List
 
-# otwieramy pliki z imionami i nazwiskami
-with open("/Users/vlad/Desktop/Python_part_2/Python_part_2/7. Praca z plikami/imiona.txt") as f:
-    imiona = [line.strip() for line in f]
+imiona_file = join(dirname(__file__), "imiona.txt")
+nazwiska_file = join(dirname(__file__), "nazwiska.txt")
+output_file = join(dirname(__file__), "kombinacje.txt")
 
-with open("/Users/vlad/Desktop/Python_part_2/Python_part_2/7. Praca z plikami/nazwiska.txt") as f:
-    nazwiska = [line.strip() for line in f]
+def generate_combinations(imiona_file, nazwiska_file, output_file, liczba_kombinacji):
+    with open(imiona_file, 'r', encoding='utf-8') as imiona, \
+         open(nazwiska_file, 'r', encoding='utf-8') as nazwiska, \
+         open(output_file, 'w', encoding='utf-8') as output:
 
-# pobieramy od użytkownika liczbę kombinacji
-x = int(input("Podaj liczbę kombinacji: "))
+        lista_imion = [line.strip() for line in imiona.readlines()]
+        lista_nazwisk = [line.strip() for line in nazwiska.readlines()]
 
-# tworzymy listę kombinacji
+        random.shuffle(lista_imion)
+        random.shuffle(lista_nazwisk)
 
-kombinacje: List[str] = []
-while len(kombinacje) < x:
-    imie = random.choice(imiona)
-    nazwisko = random.choice(nazwiska)
-    kombinacja = f"{imie} {nazwisko}"
-    if kombinacja not in kombinacje:
-        kombinacje.append(kombinacja)
+        for i in range(liczba_kombinacji):
+            imie = lista_imion[i % len(lista_imion)]
+            nazwisko = lista_nazwisk[i % len(lista_nazwisk)]
+            kombinacja = f"{imie} {nazwisko}\n"
+            output.write(kombinacja)
 
-# zapisujemy kombinacje do pliku
-with open("/Users/vlad/Desktop/Python_part_2/Python_part_2/7. Praca z plikami/kombinacje.txt", "w") as f:
-    for kombinacja in kombinacje:
-        f.write(kombinacja + "\n")
+    print(f"Pomyślnie wygenerowano i zapisano {liczba_kombinacji} kombinacji imion i nazwisk.")
+
+liczba_kombinacji = int(input("Podaj liczbę kombinacji do wygenerowania: "))
+generate_combinations(imiona_file, nazwiska_file, output_file, liczba_kombinacji)
